@@ -1,0 +1,26 @@
+server:
+  port: 9090
+  
+my:
+  app:
+    topicname: kafka-employee  
+  
+spring:  kafka:    consumer:
+      bootstrap-servers: localhost:9092      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer      group-id: empkafka
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+
+#Datasource Configuration                datasource:    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: scott
+    password: akash
+    
+#Jpa Configuration  jpa:    database-platform: org.hibernate.dialect.Oracle10gDialect
+    show-sql: true
+    hibernate:      ddl-auto: update
+     
+
+    
